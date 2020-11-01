@@ -1,0 +1,15 @@
+#!/bin/bash
+sudo yum update -y
+# Install the most recent Docker Community Edition package. 
+# For Amazon linux 2
+sudo amazon-linux-extras install docker
+
+# For Amazon linux 1
+sudo yum install docker
+
+sudo service docker start
+
+# Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
+sudo usermod -a -G docker ec2-user
+
+# source https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
